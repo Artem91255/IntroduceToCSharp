@@ -23,7 +23,7 @@ void FillArray(int [,] array)
         }
     }
 }
-void Print(int[,] array)
+void Print2DArray(int[,] array)
 {
     for(int i = 0; i<array.GetLength(0); i++)
     {
@@ -37,4 +37,4 @@ void Print(int[,] array)
 
 int[,] Array2D = CreateArray("Введите параметры создаваемого массива: ");
 FillArray(Array2D);
-Print(Array2D);
+Print2DArray(Array2D);
