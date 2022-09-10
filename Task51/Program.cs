@@ -1,5 +1,6 @@
-﻿// Задача 49: Задайте двумерный массив. Найдите элементы, у которых оба индекса чётные, 
-// и замените эти элементы на их квадраты.
+﻿// Задача 51: Задайте двумерный массив. 
+// Найдите сумму элементов, находящихся на главной диагонали (с индексами (0,0); (1;1) и т.д.
+//
 
 int[,] CreateArray(string text)
 {
@@ -11,7 +12,9 @@ int[,] CreateArray(string text)
     int[,] array = new int[rows,columns];
     return array;
 }
+
 void FillArray(int [,] array)
+
 {
     for(int i = 0; i<array.GetLength(0); i++)
     {
@@ -21,15 +24,17 @@ void FillArray(int [,] array)
         }
     }
 }
-void ChangeEvenElement(int [,] array)
+int FindSummOfElementsInMainDiagonal(int[,] array)
 {
+    int count=0;
     for(int i = 0; i<array.GetLength(0); i++)
     {
         for(int j = 0; j<array.GetLength(1); j++)
         {
-            if(i%2==0 && j%2==0)    array[i,j]= array[i,j]*array[i,j];
+            if(i==j)    count += array[i,j];
         }
     }
+    return count;
 }
 void Print2DArray(int[,] array)
 {
@@ -42,14 +47,28 @@ void Print2DArray(int[,] array)
         Console.WriteLine();
     }
 }
+void PrintElement(int number)
+{
+    Console.WriteLine(number);
+}
+int FindSummOfElementsUnderMainDiagonal(int[,] array)
+{
+    int count=0;
+    for(int i = 0; i<array.GetLength(0); i++)
+    {
+        for(int j = 0; j<array.GetLength(1); j++)
+        {
+            if(i> j)    count += array[i,j];
+        }
+    }
+    return count;
+}
+
 
 int[,] array2D = CreateArray("Введите параметры создаваемого массива: ");
-
-ChangeEvenElement(array2D);
 FillArray(array2D);
 Print2DArray(array2D);
-Console.WriteLine();
-ChangeEvenElement(array2D);
-Print2DArray(array2D);
-
-
+int result = FindSummOfElementsInMainDiagonal(array2D);
+PrintElement(result);
+int result2 = FindSummOfElementsUnderMainDiagonal(array2D);
+PrintElement(result2);

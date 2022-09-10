@@ -35,6 +35,6 @@ void Print2DArray(int[,] array)
     }
 }
 
-int[,] Array2D = CreateArray("Введите параметры создаваемого массива: ");
-FillArray(Array2D);
-Print2DArray(Array2D);
+int[,] array2D = CreateArray("Введите параметры создаваемого массива: ");
+FillArray(array2D);
+Print2DArray(array2D);
